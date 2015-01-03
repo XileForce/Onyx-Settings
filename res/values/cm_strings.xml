@@ -959,4 +959,10 @@
     <string name="expanded_hide_both">Hide both</string>
     <string name="expanded_nothing_to_show">Add items with plus button --></string>
     <string name="expanded_close">X</string>
+
+    <!-- Show/Hide Search Bar -->
+    <string name="recents_show_searchbar">Disable Search Bar in Recents Menu</string>
+    <string name="recents_show_searchbar_summary">Disable or enable the Google search bar in Recents</string>
+    <string name="keywords_recents_show_searchbar">recent recents disable search bar searchbar hide</string>
+
 </resources>
