@@ -965,4 +965,14 @@
     <string name="recents_show_searchbar_summary">Disable or enable the Google search bar in Recents</string>
     <string name="keywords_recents_show_searchbar">recent recents disable search bar searchbar hide</string>
 
+    <string name="cast_screen">Cast screen</string>
+    <string name="hotspot">Hotspot</string>
+
+    <string name="qs_settings_title">Quick Settings</string>
+    <string name="qs_settings_summary">Customize the Quick Settings panel</string>
+    <string name="qs_order">Change tiles and order</string>
+    <string name="qs_order_summary">Add new tiles or reorder them</string>
+    <string name="add_qs">Add new tile</string>
+    <string name="qs_already_added_all">There aren\'t any more tiles to add.</string>
+
 </resources>
