@@ -1,8 +1,6 @@
-package com.android.settings.cyanogenmod.qs;
-
 /*
  * Copyright (c) 2011, Animoto Inc.
- * Copyright (C) 2012 The CyanogenMod Project
+ * Copyright (C) 2012-2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +14,7 @@ package com.android.settings.cyanogenmod.qs;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.android.settings.cyanogenmod.qs;
 
 import android.app.Activity;
 import android.content.Context;
@@ -98,7 +97,7 @@ public class DraggableGridView extends ViewGroup implements
     public void addView(View child, int index) {
         super.addView(child, index);
         newPositions.add(-1);
-        if(onRearrangeListener != null) {
+        if (onRearrangeListener != null) {
             onRearrangeListener.onChange();
         }
     }
@@ -107,7 +106,7 @@ public class DraggableGridView extends ViewGroup implements
     public void addView(View child) {
         super.addView(child);
         newPositions.add(-1);
-        if(onRearrangeListener != null) {
+        if (onRearrangeListener != null) {
             onRearrangeListener.onChange();
         }
     };
@@ -116,7 +115,7 @@ public class DraggableGridView extends ViewGroup implements
     public void removeViewAt(int index) {
         super.removeViewAt(index);
         newPositions.remove(index);
-        if(onRearrangeListener != null) {
+        if (onRearrangeListener != null) {
             onRearrangeListener.onChange();
         }
     };
@@ -137,7 +136,7 @@ public class DraggableGridView extends ViewGroup implements
         for (int i = 0; i < getChildCount(); i++) {
             if (i != dragged) {
                 Point xy = getCoorFromIndex(i);
-                if(i < 2) {
+                if (i < 2) {
                     getChildAt(i).layout(xy.x+childSize/2, xy.y, (int) (xy.x + childSize*1.5),
                             xy.y + childSize);
                 } else {
@@ -212,11 +211,11 @@ public class DraggableGridView extends ViewGroup implements
         if (col == -1 || row == -1) // touch is between columns or rows
             return -1;
         int index = 0;
-        if(row == 0 && col == 2) {
+        if (row == 0 && col == 2) {
             return -1;
         }
         index = row * colCount + col;
-        if(row > 0) {
+        if (row > 0) {
             index--;
         }
         if (index > getChildCount())
@@ -226,7 +225,7 @@ public class DraggableGridView extends ViewGroup implements
 
     protected int getColFromCoor(int row, int coor) {
         coor -= padding;
-        if(row == 0) {
+        if (row == 0) {
             coor -= childSize/2;
         }
         for (int i = 0; coor > 0; i++) {
@@ -274,13 +273,13 @@ public class DraggableGridView extends ViewGroup implements
     protected Point getCoorFromIndex(int index) {
         int col = index % colCount;
         int row = index / colCount;
-        if(col == 2 && row == 0) {
+        if (col == 2 && row == 0) {
             col = 0;
             row = 1;
         }
-        if(index > 2) {
+        if (index > 2) {
             col++;
-            if(col == 3) {
+            if (col == 3) {
                 col = 0;
                 row++;
             }
@@ -316,8 +315,10 @@ public class DraggableGridView extends ViewGroup implements
             resid = R.drawable.ic_menu_delete;
             stringid = R.string.dialog_delete_title;
         }
-        TextView addDeleteTile = ((TextView) getChildAt(getChildCount() - 1).findViewById(android.R.id.title));
-        ImageView icon = ((ImageView) getChildAt(getChildCount() - 1).findViewById(android.R.id.icon));
+        TextView addDeleteTile = ((TextView) getChildAt(getChildCount() - 1).findViewById(
+                android.R.id.title));
+        ImageView icon = ((ImageView) getChildAt(getChildCount() - 1).findViewById(
+                android.R.id.icon));
         icon.setImageResource(resid);
         addDeleteTile.setText(stringid);
     }
@@ -389,7 +390,7 @@ public class DraggableGridView extends ViewGroup implements
                         reorderChildren(true);
                     else {
                         Point xy = getCoorFromIndex(dragged);
-                        if(dragged < 2) {
+                        if (dragged < 2) {
                             xy.x += childSize/2;
                         }
                         v.layout(xy.x, xy.y, xy.x + childSize, xy.y + childSize);
@@ -421,7 +422,7 @@ public class DraggableGridView extends ViewGroup implements
         int x = getCoorFromIndex(dragged).x + childSize / 2, y = getCoorFromIndex(dragged).y
                 + childSize / 2;
         int l = x - (3 * childSize / 4), t = y - (3 * childSize / 4);
-        if(dragged < 2) {
+        if (dragged < 2) {
             l += childSize/2;
         }
         v.layout(l, t, l + (childSize * 3 / 2), t + (childSize * 3 / 2));
@@ -463,14 +464,14 @@ public class DraggableGridView extends ViewGroup implements
             Point newXY = getCoorFromIndex(newPos);
 
             int offsetOld = 0;
-            if(oldPos < 2) {
+            if (oldPos < 2) {
                 offsetOld = childSize/2;
             }
             Point oldOffset = new Point(oldXY.x +offsetOld - v.getLeft(), oldXY.y
                     - v.getTop());
 
             int offsetNew = 0;
-            if(newPos < 2) {
+            if (newPos < 2) {
                 offsetNew = childSize/2;
             }
             Point newOffset = new Point(newXY.x +offsetNew - v.getLeft(), newXY.y
