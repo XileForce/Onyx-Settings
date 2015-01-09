@@ -92,6 +92,17 @@
                 android:icon="@drawable/ic_settings_home"
                 />
 
+        <!-- Equalizer -->
+        <dashboard-tile
+                android:id="@+id/equalizer_settings"
+                android:title="@string/equalizer_settings_title"
+                android:icon="@drawable/ic_v4a_equalizer" >
+                <intent
+                   android:action="android.intent.action.MAIN"
+                   android:targetClass="com.vipercn.viper4android_v2.activity.ViPER4Android"
+                   android:targetPackage="com.vipercn.viper4android_v2" />
+        </dashboard-tile>
+
         <!-- Notification drawer -->
         <dashboard-tile
                 android:id="@+id/notification_drawer_settings"
