@@ -122,8 +122,4 @@
    <string name="heads_up_time_out_10sec">10 seconds</string>
    <string name="heads_up_time_out_never">Never</string>
 
-
-   <!-- Equalizer -->
-   <string name="equalizer_settings_title">Equalizer</string>
-
 </resources>
